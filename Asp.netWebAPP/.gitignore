@@ -1,0 +1,27 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Build results
+bin/
+obj/
+
+# Publish output
+*.pubxml
+*.publishsettings
+
+# Node modules (if any)
+node_modules/
+
+# Logs
+*.log
+
+# IIS Express
+IISExpress/
+
+# Rider
+.idea/
+
+# Misc
+*.DS_Store

@@ -1,1 +1,80 @@
-[]
+[
+  {
+    "ContainingType": "Backend.Web.Controllers.AbhaLoginController",
+    "Method": "RequestOtpLogin",
+    "RelativePath": "api/AbhaLogin/request-otp-login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "Asp.netWebAPP.Core.Application.ABHA.Commands.RequestOtpLoginCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Asp.netWebAPP.Core.Application.DTO_s.OtpResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Backend.Web.Controllers.AbhaLoginController",
+    "Method": "SearchAbha",
+    "RelativePath": "api/AbhaLogin/search-abha",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Asp.netWebAPP.Core.Domain.Model.SearchAbhaRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[Asp.netWebAPP.Core.Domain.Model.AbhaAccount, Asp.netWebAPP, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Backend.Web.Controllers.AbhaLoginController",
+    "Method": "VerifyAbhaLogin",
+    "RelativePath": "api/AbhaLogin/verify-abha-login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "Asp.netWebAPP.Core.Application.ABHA.Commands.VerifyOtpCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Asp.netWebAPP.Core.Application.DTO_s.VerifyOtpResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  }
+]

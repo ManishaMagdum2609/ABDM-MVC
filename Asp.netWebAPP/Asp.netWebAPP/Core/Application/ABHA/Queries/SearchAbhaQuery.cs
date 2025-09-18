@@ -2,5 +2,11 @@
 {
     public class SearchAbhaQuery
     {
+        public string Mobile { get; }
+
+        public SearchAbhaQuery(string mobile)
+        {
+            Mobile = mobile;
+        }
     }
 }

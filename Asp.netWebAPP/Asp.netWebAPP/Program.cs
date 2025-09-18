@@ -1,4 +1,8 @@
+using Asp.netWebAPP.Core.Application.ABHA.Commands.Handlers;
+using Asp.netWebAPP.Core.Application.ABHA.Queries.Handler;
+using Asp.netWebAPP.Core.Application.Interface;
 using Asp.netWebAPP.Infrastructure.Data;
+using Asp.netWebAPP.Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,7 +14,12 @@ builder.Services.AddDbContext<AbdmDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 //builder.Services.AddScoped<IAbhaLogin_Service, Abhalogin_Service>();
+builder.Services.AddScoped<IAbhaLoginService, Abhalogin_Service>();
 
+// Handlers
+builder.Services.AddScoped<SearchAbhaHandler>();
+builder.Services.AddScoped<RequestOtpLoginHandler>();
+builder.Services.AddScoped<VerifyOtpHandler>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

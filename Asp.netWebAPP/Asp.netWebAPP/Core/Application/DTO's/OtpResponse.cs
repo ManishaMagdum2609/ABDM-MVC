@@ -2,5 +2,6 @@
 {
     public class OtpResponse
     {
+        public string txnId { get; set; }
     }
 }
