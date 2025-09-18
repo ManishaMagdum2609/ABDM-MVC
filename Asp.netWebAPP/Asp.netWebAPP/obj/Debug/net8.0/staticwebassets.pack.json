@@ -1,0 +1,53 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\MVC\\Code\\Asp.netWebAPP\\Asp.netWebAPP\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Asp.netWebAPP.bundle.scp.css",
+      "PackagePath": "staticwebassets\\Asp.netWebAPP.bundle.scp.css"
+    },
+    {
+      "Id": "D:\\MVC\\Code\\Asp.netWebAPP\\Asp.netWebAPP\\wwwroot\\3rdpartylicenses.txt",
+      "PackagePath": "staticwebassets\\3rdpartylicenses.txt"
+    },
+    {
+      "Id": "D:\\MVC\\Code\\Asp.netWebAPP\\Asp.netWebAPP\\wwwroot\\browser\\favicon.ico",
+      "PackagePath": "staticwebassets\\browser\\favicon.ico"
+    },
+    {
+      "Id": "D:\\MVC\\Code\\Asp.netWebAPP\\Asp.netWebAPP\\wwwroot\\browser\\index.html",
+      "PackagePath": "staticwebassets\\browser\\index.html"
+    },
+    {
+      "Id": "D:\\MVC\\Code\\Asp.netWebAPP\\Asp.netWebAPP\\wwwroot\\browser\\main.js",
+      "PackagePath": "staticwebassets\\browser\\main.js"
+    },
+    {
+      "Id": "D:\\MVC\\Code\\Asp.netWebAPP\\Asp.netWebAPP\\wwwroot\\browser\\polyfills.js",
+      "PackagePath": "staticwebassets\\browser\\polyfills.js"
+    },
+    {
+      "Id": "D:\\MVC\\Code\\Asp.netWebAPP\\Asp.netWebAPP\\wwwroot\\browser\\styles.css",
+      "PackagePath": "staticwebassets\\browser\\styles.css"
+    },
+    {
+      "Id": "D:\\MVC\\Code\\Asp.netWebAPP\\Asp.netWebAPP\\wwwroot\\prerendered-routes.json",
+      "PackagePath": "staticwebassets\\prerendered-routes.json"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Asp.netWebAPP.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.Asp.netWebAPP.props",
+      "PackagePath": "build\\Asp.netWebAPP.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.Asp.netWebAPP.props",
+      "PackagePath": "buildMultiTargeting\\Asp.netWebAPP.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.Asp.netWebAPP.props",
+      "PackagePath": "buildTransitive\\Asp.netWebAPP.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
