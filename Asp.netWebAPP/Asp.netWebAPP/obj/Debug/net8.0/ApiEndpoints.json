@@ -53,6 +53,32 @@
   },
   {
     "ContainingType": "Backend.Web.Controllers.AbhaLoginController",
+    "Method": "SearchPatient",
+    "RelativePath": "api/AbhaLogin/search-patient",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Asp.netWebAPP.Core.Domain.Model.SearchAbhaRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[Asp.netWebAPP.Core.Application.DTO_s.PatientSerachDTO, Asp.netWebAPP, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Backend.Web.Controllers.AbhaLoginController",
     "Method": "VerifyAbhaLogin",
     "RelativePath": "api/AbhaLogin/verify-abha-login",
     "HttpMethod": "POST",

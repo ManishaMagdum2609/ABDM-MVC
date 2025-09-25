@@ -15,15 +15,18 @@ namespace Backend.Web.Controllers
         private readonly SearchAbhaHandler _searchHandler;
         private readonly RequestOtpLoginHandler _otpHandler;
         private readonly VerifyOtpHandler _verifyHandler;
+        private readonly SearchPatientByMobileHandler _searchPatientHandler;
 
         public AbhaLoginController(
             SearchAbhaHandler searchHandler,
             RequestOtpLoginHandler otpHandler,
-            VerifyOtpHandler verifyHandler)
+            VerifyOtpHandler verifyHandler,
+             SearchPatientByMobileHandler patientHandler)
         {
             _searchHandler = searchHandler;
             _otpHandler = otpHandler;
             _verifyHandler = verifyHandler;
+            _searchPatientHandler = patientHandler;
         }
 
         [HttpPost("search-abha")]
@@ -45,6 +48,14 @@ namespace Backend.Web.Controllers
         {
             var result = await _verifyHandler.Handle(command);
             return Ok(result);
+        }
+        [HttpPost("search-patient")]
+        public async Task<ActionResult<List<PatientSerachDTO>>> SearchPatient([FromBody] SearchAbhaRequest request)
+        {
+            var result = await _searchPatientHandler.Handle(new SearchPatientByMobileQuery(request.Mobile));
+            if (result == null)
+                return NotFound();
+            return Ok(result != null ? new[] { result } : Array.Empty<PatientSerachDTO>());
         }
     }
 }

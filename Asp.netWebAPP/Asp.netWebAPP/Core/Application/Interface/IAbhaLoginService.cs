@@ -8,5 +8,6 @@ namespace Asp.netWebAPP.Core.Application.Interface
         Task<List<AbhaAccount>> SearchAbhaAsync(string mobile);
         Task<OtpResponse> RequestOtpLoginAsync(int index, string txnId);
         Task<VerifyOtpResponse> VerifyAbhaLoginAsync(string txnId, string otp);
+        Task<List<PatientSerachDTO>> SearchPatientByMobile(string mobile);
     }
 }

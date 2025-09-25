@@ -12,6 +12,8 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddHttpClient();
 builder.Services.AddDbContext<AbdmDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddDbContext<DanpheDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DanpheDb")));
 
 //builder.Services.AddScoped<IAbhaLogin_Service, Abhalogin_Service>();
 builder.Services.AddScoped<IAbhaLoginService, Abhalogin_Service>();
@@ -20,6 +22,7 @@ builder.Services.AddScoped<IAbhaLoginService, Abhalogin_Service>();
 builder.Services.AddScoped<SearchAbhaHandler>();
 builder.Services.AddScoped<RequestOtpLoginHandler>();
 builder.Services.AddScoped<VerifyOtpHandler>();
+builder.Services.AddScoped<SearchPatientByMobileHandler>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

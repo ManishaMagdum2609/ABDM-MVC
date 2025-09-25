@@ -16,11 +16,13 @@ namespace Asp.netWebAPP.Infrastructure.Services
     {
         private readonly AbdmDbContext _dbContext;
         private readonly HttpClient _httpClient;
+        private readonly DanpheDbContext _DbContext;
 
-        public Abhalogin_Service(AbdmDbContext dbContext, HttpClient httpClient)
+        public Abhalogin_Service(AbdmDbContext dbContext, HttpClient httpClient, DanpheDbContext DbContext)
         {
             _dbContext = dbContext;
             _httpClient = httpClient;
+            _DbContext = DbContext;
         }
 
         private async Task<Dictionary<string, string>> GetAbdmSettingsAsync()
@@ -211,7 +213,7 @@ namespace Asp.netWebAPP.Infrastructure.Services
             if (!response.IsSuccessStatusCode)
                 throw new Exception($"ABDM Verify OTP failed: {response.StatusCode} - {json}");
 
-            // ✅ Deserialize original ABDM payload
+            //  Deserialize original ABDM payload
             using var doc = JsonDocument.Parse(json);
             var root = doc.RootElement;
 
@@ -235,6 +237,25 @@ namespace Asp.netWebAPP.Infrastructure.Services
             }
 
             return result;
+        }
+        public async Task<List<PatientSerachDTO>> SearchPatientByMobile(string mobile)
+        {
+            if (string.IsNullOrWhiteSpace(mobile))
+                return null;
+
+            var patient = await _DbContext.Patient
+                .Where(p => p.PhoneNumber == mobile)
+                .Select(p => new PatientSerachDTO
+                {
+                    FirstName = p.FirstName,
+                    LastName = p.LastName,
+                    AbhaNumber = p.EHRNumber ,
+                    AbhaAddress = null
+
+                })
+                .ToListAsync();
+
+            return patient;
         }
 
     }
