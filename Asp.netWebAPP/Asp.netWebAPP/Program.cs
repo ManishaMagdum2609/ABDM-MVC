@@ -19,12 +19,16 @@ builder.Services.AddDbContext<DanpheDbContext>(options =>
 
 // Services
 builder.Services.AddScoped<IAbhaLoginService, Abhalogin_Service>();
+builder.Services.AddScoped<IAbhaRegistrationService,AbhaRegistrationService>();
+builder.Services.AddScoped<IAbhaAuthService,AbhaAuthService>();
 
 // Handlers
 builder.Services.AddScoped<SearchAbhaHandler>();
 builder.Services.AddScoped<RequestOtpLoginHandler>();
 builder.Services.AddScoped<VerifyOtpHandler>();
 builder.Services.AddScoped<SearchPatientByMobileHandler>();
+builder.Services.AddScoped<RequestRegisterOtpHandler>();
+builder.Services.AddScoped<VerifyRegisterOtpHandler>();
 
 // Enable CORS for Angular dev server
 builder.Services.AddCors(options =>

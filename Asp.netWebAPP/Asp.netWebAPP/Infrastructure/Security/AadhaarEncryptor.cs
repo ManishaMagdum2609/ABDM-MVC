@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Asp.netWebAPP.Infrastructure.Security
 {
-    public class AadhaarEncryptor
+    public class Encryptor
     {
         public static string EncryptWithPublicKeyString(string plainText, string publicKeyPemOrJson)
         {

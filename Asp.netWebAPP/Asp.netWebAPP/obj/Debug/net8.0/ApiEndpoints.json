@@ -1,8 +1,8 @@
 [
   {
-    "ContainingType": "Backend.Web.Controllers.AbhaLoginController",
+    "ContainingType": "Backend.Web.Controllers.AbhaController",
     "Method": "RequestOtpLogin",
-    "RelativePath": "api/AbhaLogin/request-otp-login",
+    "RelativePath": "api/Abha/request-otp-login",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -26,9 +26,9 @@
     ]
   },
   {
-    "ContainingType": "Backend.Web.Controllers.AbhaLoginController",
+    "ContainingType": "Backend.Web.Controllers.AbhaController",
     "Method": "SearchAbha",
-    "RelativePath": "api/AbhaLogin/search-abha",
+    "RelativePath": "api/Abha/search-abha",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -52,9 +52,9 @@
     ]
   },
   {
-    "ContainingType": "Backend.Web.Controllers.AbhaLoginController",
+    "ContainingType": "Backend.Web.Controllers.AbhaController",
     "Method": "SearchPatient",
-    "RelativePath": "api/AbhaLogin/search-patient",
+    "RelativePath": "api/Abha/search-patient",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -78,9 +78,9 @@
     ]
   },
   {
-    "ContainingType": "Backend.Web.Controllers.AbhaLoginController",
+    "ContainingType": "Backend.Web.Controllers.AbhaController",
     "Method": "VerifyAbhaLogin",
-    "RelativePath": "api/AbhaLogin/verify-abha-login",
+    "RelativePath": "api/Abha/verify-abha-login",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -94,6 +94,98 @@
     "ReturnTypes": [
       {
         "Type": "Asp.netWebAPP.Core.Application.DTO_s.VerifyOtpResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Asp.netWebAPP.Web.Controllers.AbhaAuthController",
+    "Method": "GetPublicKey",
+    "RelativePath": "api/AbhaAuth/public-key",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Asp.netWebAPP.Web.Controllers.AbhaAuthController",
+    "Method": "GetAccessToken",
+    "RelativePath": "api/AbhaAuth/token",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Asp.netWebAPP.Web.Controllers.AbhaRegisterController",
+    "Method": "RequestOtpRegister",
+    "RelativePath": "api/AbhaRegister/request-otp-register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "Asp.netWebAPP.Core.Application.ABHA.Commands.RequestRegisterOtpCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Asp.netWebAPP.Core.Application.DTO_s.OtpResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Asp.netWebAPP.Web.Controllers.AbhaRegisterController",
+    "Method": "VerifyOtpRegister",
+    "RelativePath": "api/AbhaRegister/verify-otp-register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "Asp.netWebAPP.Core.Application.ABHA.Commands.VerifyRegisterOtpCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "VerifyRegisterOtpResponse",
         "MediaTypes": [
           "text/plain",
           "application/json",
