@@ -1,0 +1,116 @@
+<div class="container">
+  <div *ngIf="Loading()" class="loading-overlay">
+    <div class="spinner"></div>
+    <p>Please wait...</p>
+  </div>
+
+  <div *ngIf="!ShowCreateAbha()">
+    <h3>ABHA Login</h3>
+
+    <!-- Mobile Input Form -->
+    <form [formGroup]="loginForm" (ngSubmit)="RequestOtp()">
+      <div class="form-group center-group">
+        <label>Enter Mobile Number</label>
+        <input
+          type="text"
+          formControlName="mobile"
+          (input)="OnMobileInput(loginForm.get('mobile')!.value)"
+          maxlength="10"
+        />
+        <button type="submit" [disabled]="loginForm.get('mobile')?.invalid">
+          Send OTP
+        </button>
+      </div>
+    </form>
+
+    <!-- OTP Input Form -->
+    <div *ngIf="Step() >= 2 && !NoAbhaFound()" class="form-group center-group">
+      <form [formGroup]="loginForm" (ngSubmit)="VerifyOtp()">
+        <label>Enter OTP</label>
+        <input
+          type="text"
+          formControlName="otp"
+          (input)="Otp.set(loginForm.get('otp')!.value)"
+          maxlength="6"
+        />
+        <button type="submit" [disabled]="loginForm.get('otp')?.invalid">
+          Verify OTP
+        </button>
+      </form>
+    </div>
+
+    <!-- No ABHA found -->
+    <div *ngIf="Step() >= 2 && NoAbhaFound()" class="no-abha-notice">
+      <p>No ABHA account found for this mobile number. Do you want to create a new ABHA account?</p>
+      <button (click)="OnCreateAbhaClick()">Create ABHA Account</button>
+
+      <div class="box patient-box">
+        <h4>Danphe EMR Patients</h4>
+        <div class="scrollable-content">
+          <div *ngIf="Patients().length > 0; else noPatients2">
+            <div *ngFor="let pat of Patients()" class="abha-account">
+              <input type="radio" name="patientRecord" (change)="SelectedPatient.set(pat)" />
+              <div class="patient-details">
+                <div class="full-name">Patient Name: {{ pat?.firstName }} {{ pat?.lastName }}</div>
+                <div class="ehr-number">EHR Number: {{ pat?.abhaNumber }}</div>
+                <div class="ehr-address">EHR Address: {{ pat?.abhaAddress }}</div>
+              </div>
+            </div>
+          </div>
+          <ng-template #noPatients2>
+            <p>No patients found in Danphe EMR.</p>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+
+    <!-- ABHA accounts + Patients -->
+    <div *ngIf="Step() >= 3" class="boxes-container">
+      <div class="box abha-box">
+        <h4>ABHA Accounts</h4>
+        <div class="scrollable-content">
+          <div *ngIf="AbhaAccounts().length > 0; else noAccounts">
+            <div *ngFor="let acc of AbhaAccounts()" class="abha-account">
+              <input
+                type="radio"
+                name="abhaAccount"
+                [value]="acc.abhaNumber"
+                (change)="SelectedAbha.set(acc)"
+              />
+              <div class="patient-details">
+                <div class="full-name">Name: {{ acc.name }}</div>
+                <div class="ehr-number">ABHA Number: {{ acc.abhaNumber }}</div>
+                <div class="ehr-address">ABHA Address: {{ acc.preferredAbhaAddress }}</div>
+              </div>
+            </div>
+          </div>
+          <ng-template #noAccounts>
+            <p>No ABHA accounts found.</p>
+          </ng-template>
+        </div>
+      </div>
+
+      <div class="box patient-box">
+        <h4>Danphe EMR Patients</h4>
+        <div class="scrollable-content">
+          <div *ngIf="Patients().length > 0; else noPatients">
+            <div *ngFor="let pat of Patients()" class="abha-account">
+              <input type="radio" name="patientRecord" (change)="SelectedPatient.set(pat)" />
+              <div class="patient-details">
+                <div class="full-name">Patient Name: {{ pat?.firstName }} {{ pat?.lastName }}</div>
+                <div class="ehr-number">EHR Number: {{ pat?.abhaNumber }}</div>
+                <div class="ehr-address">EHR Address: {{ pat?.abhaAddress }}</div>
+              </div>
+            </div>
+          </div>
+          <ng-template #noPatients>
+            <p>No patients found in Danphe EMR.</p>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABHA Registration Component -->
+  <app-abha-registration></app-abha-registration>
+</div>

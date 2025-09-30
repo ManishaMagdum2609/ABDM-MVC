@@ -1,0 +1,33 @@
+/* Position override (ensure it's right-bottom) */
+.toast-bottom-left {
+  left: 20px !important;
+  bottom: 20px !important;
+}
+
+/* Success message (green background with white text) */
+.toast-success {
+  background-color: #28a745 !important;
+  color: #fff !important;
+  font-weight: 500;
+}
+
+/* Error message (red background) */
+.toast-error {
+  background-color: #dc3545 !important;
+  color: #fff !important;
+  font-weight: 500;
+}
+
+/* Warning message (yellow background with dark text) */
+.toast-warning {
+  background-color: #ffc107 !important;
+  color: #212529 !important;
+  font-weight: 500;
+}
+
+/* Info message (blue background with white text) */
+.toast-info {
+  background-color: #17a2b8 !important;
+  color: #fff !important;
+  font-weight: 500;
+}

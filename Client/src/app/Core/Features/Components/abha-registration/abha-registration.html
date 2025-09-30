@@ -1,0 +1,47 @@
+<div class="box create-abha-box" [formGroup]="abhaForm">
+  <div *ngIf="Loading()" class="loading-overlay">
+  <div class="spinner"></div>
+  <p>Please wait...</p>
+</div>
+  <h3>Create New ABHA Account</h3>
+
+  <!-- Step 1: Aadhaar Input -->
+  <div class="form-group">
+    <label>Enter Aadhaar Number</label>
+    <input type="text" formControlName="aadhar" maxlength="12" />
+    <div *ngIf="abhaForm.controls['aadhar'].invalid && abhaForm.controls['aadhar'].touched" class="error">
+      Aadhaar must be 12 digits
+    </div>
+    <button (click)="RequestOtp()" [disabled]="abhaForm.controls['aadhar'].invalid">Send OTP</button>
+  </div>
+
+  <!-- Step 2: OTP Input -->
+  <div *ngIf="CreateStep() >= 2" class="form-group">
+    <label>Enter OTP</label>
+    <input type="text" formControlName="otp" maxlength="6" />
+    <div *ngIf="abhaForm.controls['otp'].invalid && abhaForm.controls['otp'].touched" class="error">
+      OTP must be 6 digits
+    </div>
+  </div>
+
+  <!-- Step 2: Mobile Input -->
+  <div *ngIf="CreateStep() >= 2" class="form-group">
+    <label>Enter Mobile Number</label>
+    <input type="text" formControlName="mobile" maxlength="10" />
+    <div *ngIf="abhaForm.controls['mobile'].invalid && abhaForm.controls['mobile'].touched" class="error">
+      Mobile number must be 10 digits
+    </div>
+    <button (click)="VerifyAadharOtp()" [disabled]="abhaForm.controls['otp'].invalid || abhaForm.controls['mobile'].invalid">
+      Verify OTP
+    </button>
+  </div>
+
+  <!-- Show Verified ABHA Details -->
+ <div *ngIf="VerifiedAbha" class="abha-details">
+   <h4>ABHA Account Details</h4>
+   <p>ABHA Number: {{ VerifiedAbha.AbhaNumber }}</p>
+   <p>ABHA Address: {{ VerifiedAbha.AbhaAddress }}</p>
+   <p>Name: {{ VerifiedAbha.Name }}</p>
+   <p *ngIf="VerifiedAbha.mobile">Mobile: {{ VerifiedAbha.mobile }}</p>
+  </div>
+</div>
