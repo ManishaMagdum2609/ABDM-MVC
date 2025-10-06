@@ -17,7 +17,7 @@ namespace Asp.netWebAPP.Infrastructure.Services
             _dbContext = dbContext;
             _httpClient = httpClient;
         }
-        private async Task<AbdmConfigDTO> GetAbdmConfigAsync()
+        public async Task<AbdmConfigDTO> GetAbdmConfigAsync()
         {
             var row = await _dbContext.AbdmCore_Parameters
                 .FirstOrDefaultAsync(p => p.ParameterGroupName == "ABDM");

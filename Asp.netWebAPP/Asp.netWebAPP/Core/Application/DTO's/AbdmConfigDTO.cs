@@ -11,5 +11,10 @@
         public string abhaLoginUrl { get; set; }
         public string abhaLoginOTPRequestUrl { get; set; }
         public string searchAbhaUrl { get; set; }
+        //add here in db  ...Snehal
+        public string registerBridgeServiceUrl { get; set; }
+        public string careContextLinkUrl { get; set; }
+        public string hipId { get; set; }
+        public string generateLinkTokenUrl { get; set; }
     }
 }
